@@ -13,7 +13,31 @@ $("document").ready(function() {
     });
 
     //nice Scroll
-    $("html").niceScroll({ interval: 9e3 }); /*end of nice Scroll*/
+    // $("html").niceScroll({ interval: 11e3 }); /*end of nice Scroll*/
+
+    $(document).ready(function() {
+        $(".skitter-large").skitter({numbers: !0, dots: !1});
+    });
+
+    $(document).ready( function() {                
+
+            /* $(selector).hover( inFunction, outFunction ) */
+            $('.dropdown').hover( 
+                function() {                        
+                    $(this).find('ul').css({
+                        "display": "block",
+                        "margin-top": 0
+                    });                        
+                }, 
+                function() {                        
+                    $(this).find('ul').css({
+                        "display": "none",
+                        "margin-top": 0
+                    });                        
+                } 
+            );
+
+        });
 
     //wow js
     new WOW().init();
@@ -81,6 +105,13 @@ $("document").ready(function() {
 
 
 }); /*end of document ready*/
+
+$(window).on("load", function () {
+    $(".ff").fadeOut(5e3, function () {
+        $(this).remove(".ff");
+        $("body").css("overflow", "auto");
+    });
+});/*end of loading*/
 
 
 

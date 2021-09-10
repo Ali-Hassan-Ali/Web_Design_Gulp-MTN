@@ -1,0 +1,152 @@
+.ff {
+  background: #dc3545;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+  :root {
+    --size: 3rem;
+    --duration: 2.25s;
+    --bg: #023e8a;
+    --conainer: #e5e5e5;
+    --block: #14213d;
+    --block-2: #fca311;
+    --block-3: #f72585;
+  }
+
+
+
+  .container {
+    display: flex;
+    width: calc(var(--size) * 5);
+    height: calc(var(--size) * 8);
+    position: relative;
+    z-index: 10;
+    background-color: var(--conainer);
+    border-radius: 0.5rem;
+  }
+
+  .block {
+    position: absolute;
+    bottom: var(--size);
+    left: calc(var(--size) * 2);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 5px;
+    animation: jump var(--duration) linear infinite;
+  }
+
+  .block:nth-child(1)::after {
+    content: '';
+    position: absolute;
+    bottom: calc(var(--size) / 8);
+    left: 45%;
+    width: calc(var(--size) * 2 / 3);
+    height: calc(var(--size) * 2 / 3);
+    border-radius: 50%;
+    border-top: 4px solid var(--block);
+    border-left: 4px solid var(--block);
+    transform: rotate(135deg);
+  }
+
+  .block:nth-child(1) {
+    background-color: var(--block);
+    z-index: 10;
+  }
+
+  .block:nth-child(2) {
+    background-color: var(--block-2);
+    width: calc(var(--size) / 2);
+    height: calc(var(--size) / 2);
+    left: calc(var(--size) * 2.2);
+    z-index: 9;
+    animation: jump1 var(--duration) linear infinite;
+  }
+
+  .block:nth-child(3) {
+    background-color: var(--block-3);
+    width: calc(var(--size) / 3);
+    height: calc(var(--size) / 3);
+    left: calc(var(--size) * 5 / 2);
+    z-index: 8;
+    animation: jump2 var(--duration) linear infinite;
+  }
+
+  @keyframes jump {
+    0% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1);
+      transform-origin: bottom;
+    }
+    8% {
+      bottom: var(--size);
+      transform: scaleY(0.5) scaleX(1.4);
+      transform-origin: bottom;
+      animation-timing-function: cubic-bezier(0, 0.8, 0.74, 1);
+    }
+    25% {
+      bottom: calc(var(--size) * 3);
+      transform: scaleY(1) scaleX(1);
+      animation-timing-function: cubic-bezier(0.8, 0.42, 1, 0.64);
+    }
+    95% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1) rotate(0turn);
+    }
+    100% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1) rotate(0turn);
+    }
+  }
+
+  @keyframes jump1 {
+    0% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1);
+      transform-origin: bottom;
+    }
+    8% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1);
+      transform-origin: bottom;
+      animation-timing-function: cubic-bezier(0, 0.8, 0.74, 1);
+    }
+    55% {
+      bottom: calc(var(--size) * 5.5);
+      transform: scaleY(1) scaleX(1) rotate(-1turn);
+      transform-origin: center;
+      animation-timing-function: cubic-bezier(0.29, 0.01, 1, 0.55);
+    }
+    100% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1) rotate(-2turn);
+    }
+  }
+
+  @keyframes jump2 {
+    0% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1);
+      transform-origin: bottom;
+    }
+    8% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1);
+      transform-origin: bottom;
+      animation-timing-function: cubic-bezier(0, 0.8, 0.74, 1);
+    }
+    55% {
+      bottom: calc(var(--size) * 6.5);
+      transform: scaleY(1) scaleX(1) rotate(1turn);
+      transform-origin: center;
+      animation-timing-function: cubic-bezier(0.29, 0.01, 1, 0.55);
+    }
+    100% {
+      bottom: var(--size);
+      transform: scaleY(1) scaleX(1) rotate(2turn);
+    }
+  }
